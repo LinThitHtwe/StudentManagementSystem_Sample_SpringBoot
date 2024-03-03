@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "candidate")
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false,columnDefinition = "BOOLEAN")
+    @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean gender;
 
     @Column(nullable = false)
@@ -33,10 +33,10 @@ public class Student {
     @Column(nullable = false)
     private String education;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "student_course",
-    joinColumns = @JoinColumn(name = "student_id"),
-    inverseJoinColumns = @JoinColumn(name = "course_id"))
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
     private Set<Course> courses = new HashSet<Course>();
 
     public int getId() {

@@ -17,14 +17,14 @@ public class StudentController {
     @GetMapping("/")
     public String getAllStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
-        return "studentsTable";
+        return "student/studentsTable";
     }
 
     @GetMapping("/add")
     public String addStudentPage(Model model) {
         Student student = new Student();
         model.addAttribute("student", student);
-        return "addStudent";
+        return "student/addStudent";
     }
 
     @PostMapping("/add")
@@ -36,7 +36,7 @@ public class StudentController {
     @GetMapping("/edit/{id}")
     public String updateStudentPage(@PathVariable int id, Model model) {
         model.addAttribute("student", studentService.getStudentById(id));
-        return "updateStudent";
+        return "student/updateStudent";
     }
 
     @PatchMapping("/edit/{id}")
