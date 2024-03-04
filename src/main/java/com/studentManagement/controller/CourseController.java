@@ -39,7 +39,7 @@ public class CourseController {
 
         }
         courseService.addCourse(course);
-        return "redirect:/course";
+        return "redirect:/course/";
     }
 
     @GetMapping("/edit/{id}")
@@ -52,7 +52,7 @@ public class CourseController {
     @PostMapping("/edit/{id}")
     public String updateCourse(@PathVariable int id, @ModelAttribute("course") Course course, Model model) {
         courseService.updateCourse(course);
-        return "redirect:/course";
+        return "redirect:/course/";
     }
 
 }

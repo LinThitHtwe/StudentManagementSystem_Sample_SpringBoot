@@ -65,7 +65,6 @@
                     <button type="button" class="btn btn-secondary " onclick="location.href = '/course/add';">
                         Add
                     </button>
-
                 </div>
                 <div class="col-auto">
                     <button type="reset" class="btn btn-danger mb-3">Reset</button>
@@ -87,13 +86,14 @@
                     <td th:text="${stat.index + 1}"></td>
                     <td th:text="${course.name}"></td>
                     <td>
-                        <!--                        <button type="button" class="btn btn-success"-->
-                        <!--                                th:onclick="'location.href = /course/edit/' + ${course.id}">-->
-                        <!--                            Update-->
-                        <!--                        </button>-->
                         <a class="btn btn-success" th:href="@{/course/edit/{id} (id=${course.id})}">Update</a>
                     </td>
                 </tr>
+                <th:block th:if="${courses.isEmpty()}">
+                    <tr>
+                        <td colspan="3">No courses to show</td>
+                    </tr>
+                </th:block>
 
 
                 </tbody>

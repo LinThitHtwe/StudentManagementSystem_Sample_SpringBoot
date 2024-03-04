@@ -26,9 +26,9 @@ public class Student {
     @Column(nullable = false)
     private LocalDate dateOfBirth;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "LONGBLOB")
     @Lob
-    private byte[] photo;
+    private String photo;
 
     @Column(nullable = false)
     private String education;
@@ -79,11 +79,11 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
